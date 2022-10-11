@@ -1,3 +1,9 @@
-export default function Escena() {
-    return <p>El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial</p>
+import {textos} from './Textos'
+
+export default function Escena(props) {
+    return <ul>
+    {textos.map(props => {
+        return <p>{props}</p>
+    })}
+    </ul>
 }
