@@ -1,9 +1,10 @@
 import {textos} from './Textos'
+import {Border} from '../styled'
 
 export default function Escena(props) {
-    return <ul>
-    {textos.map(props => {
-        return <p>{props}</p>
+    return <div>
+        {textos.map(props => {
+            return <Border>{props}</Border>
     })}
-    </ul>
+    </div>
 }
