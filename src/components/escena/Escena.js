@@ -1,10 +1,13 @@
-import {textos} from './Textos'
 import {Border} from '../styled'
+import {BackgroundPink} from '../styled'
+import {textos} from './Textos'
 
 export default function Escena(props) {
+    console.log(props);
     return <div>
-        {textos.map(props => {
-            return <Border>{props}</Border>
-    })}
+        {props.textoEscena === textos[0]
+                ? <BackgroundPink>{props.textoEscena}</BackgroundPink>
+                : <Border>{props.textoEscena}</Border> 
+        }
     </div>
 }
