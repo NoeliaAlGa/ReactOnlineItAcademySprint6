@@ -1,7 +1,6 @@
 import './App.css';
 import Escena from './components/escena/Escena';
 import {textos} from './components/escena/Textos'
-/*import Butons from './components/Butons';*/
 import {Buttons} from './components/styled';
 import {useState} from 'react';
 
