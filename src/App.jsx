@@ -6,20 +6,18 @@ import {Buttons} from './components/styled';
 import {useState} from 'react';
 
 function App() {
-  const [currentActive, setCurrentActive] = useState(0);
+ const [currentActive, setCurrentActive] = useState(0);
 
   const back = () => {
     if(currentActive > 0 && currentActive < textos.length) {
       setCurrentActive(currentActive - 1);
     }
-    console.log('indice back:', currentActive);
   }
   
   const next = () => {
-      if(currentActive >= 0 && currentActive < textos.length) {
+      if(currentActive >= 0 && currentActive < textos.length -1) {
         setCurrentActive(currentActive + 1);
       }
-      console.log('indice next:', currentActive);
   }
 
   return (
