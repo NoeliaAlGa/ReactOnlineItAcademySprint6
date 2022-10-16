@@ -7,6 +7,7 @@ export const Border = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
+  backbround-color: {props.active} ?pink : white;
 `;
 
 export const Buttons = styled.button`
