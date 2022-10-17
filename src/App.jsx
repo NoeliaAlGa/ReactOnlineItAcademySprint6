@@ -1,14 +1,17 @@
+import React from "react";
 import "./App.css";
 import Escena from "./components/escena/Escena";
 import Cabecera from "./components/cabecera"
 import { textos } from "./components/escena/Textos";
 import { Buttons } from "./components/styled";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+
 
 function App() {
   const [currentActive, setCurrentActive] = useState(0);
   const [pantallaBenvinguda, setpantallaBenvinguda] = useState(true);
-
+  
   const iniciar = () => {
     setpantallaBenvinguda(false);
   };
@@ -25,6 +28,13 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    pantallaBenvinguda 
+      ? document.body.style = 'background-image: none)'
+      : document.body.style = `background-image: url(./img/${currentActive}.jpg)`;
+  });
+  
+
   return (
     <div className="App">
       {pantallaBenvinguda
@@ -32,22 +42,23 @@ function App() {
           <Cabecera/>
           <Buttons onClick={iniciar}>Començar</Buttons>
         </div>
-        :<div>
+        :<body style = {{backgroundImage: `url(./img/${currentActive}.jpg)`}}>
           <div>
-            <Buttons onClick={back}>Anterior</Buttons>
-            <Buttons onClick={next}>Següent</Buttons>
+            <div>
+              <Buttons onClick={back}>Anterior</Buttons>
+              <Buttons onClick={next}>Següent</Buttons>
+            </div>
+            <div>
+              {textos.map((texto, indice) => {
+                const esActiu = indice === currentActive;
+                return <Escena key={indice} actiu={esActiu} textoEscena={texto.txt} />;
+              })}
+            </div>
           </div>
-          <div>
-            {textos.map((texto, indice) => {
-              const esActiu = indice === currentActive;
-              return <Escena key={indice} actiu={esActiu} textoEscena={texto} />;
-            })}
-          </div>
-      </div>
+        </body>
       }
-   
     </div>
-  );
+  )
 }
 
 export default App;
